@@ -35,7 +35,26 @@ from runner.koan import *
 
 def score(dice):
     # You need to write this method
-    pass
+    score = 0
+    if dice == []:
+        return score
+    dice_unique = list(set(dice))
+    for i in dice_unique:
+        repeated = dice.count(i)
+        if i != 1 and repeated >= 3:
+            repeated = repeated - 3
+            score += i * 100    
+        if i == 1 and repeated >= 3:
+            repeated = repeated - 3
+            score += 1000
+        if i == 1 and repeated <= 2:
+            score += repeated * 100
+        if i == 5 and repeated <= 2:
+            score += repeated * 50
+        if i != 1 and i != 5 and repeated < 3: 
+            score += 0
+    return score     
+
 
 
 class AboutScoringProject(Koan):
