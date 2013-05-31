@@ -17,15 +17,21 @@
 # and
 #   about_triangle_project_2.py
 #
+def triangle_valid(a, b, c):
+    if (a <=0 ) or (b <=0 ) or (c <= 0):
+        raise TriangleError('Triangle must have all positive sides')
+    else:
+        pass
+    if a + b <= c or a + c <= b or b + c <= a:
+        raise TriangleError('the measurements wont make a triangle')
+    
+
 def triangle(a, b, c):
     # DELETE 'PASS' AND WRITE THIS CODE
+    triangle_valid(a, b, c)
     if a == b == c:
         return "equilateral"
-    elif a > b and b == c or a == c:
-        return "isosceles"
-    elif b > c and a == b or a ==c:
-        return "isosceles"
-    elif c > a and c == b or a == b:
+    elif a == b or b == c or a == c:
         return "isosceles"
     else:
         return "scalene"
@@ -34,3 +40,5 @@ def triangle(a, b, c):
 # Error class used in part 2.  No need to change this code.
 class TriangleError(StandardError):
     pass
+    
+    
